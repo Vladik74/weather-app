@@ -1,0 +1,94 @@
+#submitCity {
+    background-color: lavender;
+    font-family: Arial serif;
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 10px 5px;
+    justify-content: center;
+    margin: 20px 20px;
+}
+
+#submitCity:hover {
+    background-color: plum;
+    transition: background-color 0.5s linear;
+    cursor: pointer;
+}
+
+#currentLoc:hover {
+    background-color: darkgray;
+    transition: background-color 0.5s linear;
+    cursor: pointer;
+}
+
+#weather-form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#city {
+    font-family: Arial serif;
+    font-size: 20px;
+    border-radius: 5px;
+    margin: 10px 10px;
+
+}
+
+.top-banner {
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.resultsContainer {
+    display: flex;
+    visibility: hidden;
+}
+
+#name, #temp, #coords, #pressure, #humidity, #weather-icon {
+    word-wrap: normal;
+    display: flex;
+    padding: 10px 10px;
+    margin: 10px 10px;
+    background: antiquewhite;
+    font-size: 18px;
+    font-family: Arial serif;
+    border-radius: 5px;
+    justify-content: center;
+}
+
+.results {
+    display: flex;
+    justify-content: center;
+}
+
+@keyframes bounce {
+    0%, 20%, 60%, 100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-20px);
+    }
+
+    80% {
+        transform: translateY(-10px);
+    }
+}
+
+#name:hover, #temp:hover, #coords:hover, #pressure:hover, #humidity:hover {
+    animation: bounce 1s;
+}
+
+#currentLoc {
+    display: flex;
+    justify-content: center;
+    margin: 10px 10px;
+    border-radius: 5px;
+    padding: 5px 5px;
+    height: max-content;
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<section class="top-banner">
+    <div class="container">
+        <form id="weather-form">
+            <input type="text" name="city" id="city" placeholder="Search for a city" autofocus>
+            <button type="submit" name="submitCity" id="submitCity">SUBMIT</button>
+            <span class="msg"></span>
+        </form>
+        <button type="button" name="currentLoc" id="currentLoc">Current location</button>
+    </div>
+</section>
+<section class="results" id="results">
+    <div class="resultsContainer" id="resultsContainer">
+        <span id="name"></span>
+        <span id="coords"></span>
+        <span id="temp"></span>
+        <img id="weather-icon" src="">
+        <span id="pressure"></span>
+        <span id="humidity"></span>
+    </div>
+</section>
+<script type="text/javascript" src="app.js"></script>
+</body>
+</html>
