@@ -49,16 +49,17 @@
     visibility: hidden;
 }
 
-#name, #temp, #coords, #pressure, #humidity, #weather-icon {
+#city-card, #temp, #coords, #pressure, #humidity {
     word-wrap: normal;
     display: flex;
     padding: 10px 10px;
     margin: 10px 10px;
-    background: antiquewhite;
+    background: linear-gradient(antiquewhite, #F5CB85);
     font-size: 18px;
     font-family: Arial serif;
     border-radius: 5px;
     justify-content: center;
+
 }
 
 .results {
@@ -80,15 +81,20 @@
     }
 }
 
-#name:hover, #temp:hover, #coords:hover, #pressure:hover, #humidity:hover {
+#city-card:hover, #temp:hover, #coords:hover, #pressure:hover, #humidity:hover {
     animation: bounce 1s;
 }
 
 #currentLoc {
     display: flex;
     justify-content: center;
-    margin: 10px 10px;
+    margin: 5px 5px;
     border-radius: 5px;
     padding: 5px 5px;
     height: max-content;
+}
+
+#temp, #city-card {
+    font-size: 24px;
+    font-weight: lighter;
 }

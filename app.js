@@ -11,20 +11,36 @@ function getData(form) {
 }
 
 function showCurrentWeather(results) {
-    let city = results["name"];
-    let lon = results["coord"]["lon"];
-    let lat = results["coord"]["lat"];
-    let temp = results["main"]["temp"];
-    let press = results["main"]["pressure"];
-    let humid = results["main"]["humidity"];
-    let imageIcon = results["weather"][0]["icon"];
+    let city = results["city"]["name"];
+    let lon = results["city"]["coord"]["lon"];
+    let lat = results["city"]["coord"]["lat"];
     resultsContainer.style.visibility = 'visible';
     name.innerHTML = `\n ${city}`;
     coords.innerHTML = `${lon} ${lat}`;
-    temperature.innerHTML = `${kelvinToCelsius(temp)}`;
-    weatherIcon.src = `https://openweathermap.org/img/wn/${imageIcon}.png`
-    pressure.innerHTML = `${hPaTommHg(press)}`;
-    humidity.innerHTML = `${humid}%`;
+
+    for (let forecast of results["list"]) {
+        let temp = forecast["main"]["temp"];
+        let press = forecast["main"]["pressure"];
+        let humid = forecast["main"]["humidity"];
+        let imageIcon = forecast["weather"][0]["icon"];
+        let date = forecast["dt_txt"];
+        if (c === 0) {
+            temperature.innerHTML = `${kelvinToCelsius(temp)}`;
+            weatherIcon.src = `https://openweathermap.org/img/wn/${imageIcon}.png`
+            pressure.innerHTML = `${hPaTommHg(press)}`;
+            humidity.innerHTML = `${humid}%`;
+        }
+        else {
+            temps.push(temp);
+            dates.push(date);
+        }
+        c++;
+    }
+
+    console.log(temps);
+    console.log(dates);
+
+
 }
 
 async function getLocation() {
@@ -48,13 +64,13 @@ function error({message}) {
 }
 
 async function sendCityData(city) {
-    return await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`)
+    return await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${key}`)
         .then(resp => resp.json())
         .then(results => showCurrentWeather(results));
 }
 
 async function sendCoordinatesData([lat, lon]) {
-    return await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}`)
+    return await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${key}`)
         .then(resp => resp.json())
         .then(results => showCurrentWeather(results));
 }
@@ -94,4 +110,3 @@ form.addEventListener('submit', handleFormSubmit);
 document.getElementById('currentLoc').onclick = () => {
     navigator.geolocation.getCurrentPosition(success, error, {enableHighAccuracy: true});
 };
-
