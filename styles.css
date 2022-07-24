@@ -31,7 +31,7 @@
     font-size: 20px;
     border-radius: 5px;
     margin: 10px 10px;
-
+    height: 30px;
 }
 
 .top-banner {
@@ -49,7 +49,20 @@
     visibility: hidden;
 }
 
-#city-card, #temp, #coords, #pressure, #humidity {
+.tempContainer {
+    visibility: hidden;
+}
+
+.chartContainer, .weather-table-section {
+    display: none;
+}
+
+#tempContainer {
+    height: 300px;
+    width: 100%;
+}
+
+#city-card, #temp, #coords, #pressure, #humidity, #sunrise-sunset {
     word-wrap: normal;
     display: flex;
     padding: 10px 10px;
@@ -81,7 +94,7 @@
     }
 }
 
-#city-card:hover, #temp:hover, #coords:hover, #pressure:hover, #humidity:hover {
+#city-card:hover, #temp:hover, #coords:hover, #pressure:hover, #humidity:hover, #sunrise-sunset:hover {
     animation: bounce 1s;
 }
 
@@ -97,4 +110,40 @@
 #temp, #city-card {
     font-size: 24px;
     font-weight: lighter;
+}
+
+#tempContainer {
+    border-radius: 5px;
+    background: linear-gradient(antiquewhite, #F5CB85);
+}
+
+.time {
+    visibility: hidden;
+    word-wrap: normal;
+    display: flex;
+    padding: 10px 10px;
+    margin: 10px 10px;
+    background: linear-gradient(antiquewhite, #F5CB85);
+    font-size: 18px;
+    font-family: Arial serif;
+    border-radius: 5px;
+    height: 16px;
+    align-items: center;
+}
+
+td, th {
+    border: 1px solid #FF8630;
+    border-left-width: 0;
+    padding: 14px;
+    vertical-align: top;
+    line-height: 1.2;
+}
+
+.weather-table {
+    border-top: 5px solid #FF8630;
+    border-collapse: collapse;
+}
+
+.weather-table-section {
+    padding-top: 20px;
 }
